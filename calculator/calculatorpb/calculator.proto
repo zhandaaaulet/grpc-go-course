@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package calculator;
+
+option go_package = "github.com\\zhandaaaulet\\grpc-go-course\\calculator\\calculatorpb;calculatorpb";
+
+message Calculating{
+  int64 number=1;
+}
+
+message CalculatorRequest{
+  Calculating calculating = 1;
+}
+
+message CalculatorResponse{
+  string result = 1;
+}
+
+service CalculateService{
+  rpc CalculateEveryone(stream CalculatorRequest) returns(stream CalculatorResponse) {}
+}
