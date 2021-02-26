@@ -21,7 +21,7 @@ func main() {
 	defer conn.Close()
 
 	c := greetpb.NewGreetServiceClient(conn)
-	doLongGreet(c)
+	doUnary(c)
 }
 
 func doUnary(c greetpb.GreetServiceClient) {

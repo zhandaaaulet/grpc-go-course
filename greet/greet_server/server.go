@@ -53,7 +53,7 @@ func (s *Server) GreetManyTimes(req *greetpb.GreetManyTimesRequest, stream greet
 	fmt.Printf("GreetManyTimes function was invoked with %v \n", req)
 	firstName := req.GetGreeting().GetFirstName()
 	for i := 0; i < 10; i++ {
-		res := &greetpb.GreetManyTimesResponse{Result: fmt.Sprintf("%d) Hello, %v\n", i, firstName)}
+		res := &greetpb.GreetManyTimesResponse{Result: fmt.Sprintf(	"%d) Hello, %v\n", i, firstName)}
 		if err := stream.Send(res); err != nil {
 			log.Fatalf("error while sending greet many times responses: %v", err.Error())
 		}

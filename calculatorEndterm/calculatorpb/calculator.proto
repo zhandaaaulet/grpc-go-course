@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package calculatorEndterm;
+
+option go_package = "github.com\\zhandaaaulet\\grpc-go-course\\calculatorEndterm\\calculatorpb;calculatorpb";
+
+message Calculating{
+   int64 number=1;
+}
+
+message CalculatorRequest{
+  Calculating calculating = 1;
+}
+
+message CalculatorResponse{
+  string result = 1;
+}
+
+message AverageRequest{
+  int64 numbers = 1;
+}
+
+message AverageResponse{
+  double result = 1;
+}
+
+service CalculateService{
+  rpc CalculateManyTimes(CalculatorRequest) returns(stream CalculatorResponse) {}
+  rpc ComputeAverage(stream AverageRequest) returns(AverageResponse) {}
+}
