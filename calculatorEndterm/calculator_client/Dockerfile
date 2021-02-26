@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN go build -o app ./
+RUN go build -o app ./calculatorEndterm/calculator_client
 
 EXPOSE 8080
 
